@@ -23,7 +23,9 @@ require 'yaml'
 require './app'
 
 # config
-config = YAML.load(File.read(File.join(__dir__, 'config.yml')))
+config = YAML.load(
+  File.read(File.join(File.dirname(__FILE__), 'config', 'config.yml'))
+)
 config.each do |key, value|
   Object.const_set(key, value.deep_symbolize_keys)
 end
