@@ -1,0 +1,9 @@
+#main-language-selector {
+  text-align: center
+}
+
+.navbar .search-container {
+  float: right;
+  width: 20em;
+  padding: 15px 15px;
+}

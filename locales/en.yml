@@ -1,0 +1,52 @@
+# Filmaro - simple app to show film data stored in Wikidata
+#
+# Copyright (C) 2017-2019  Václav Zouzalík
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+en:
+  # page titles
+  main_page_title: "Main page - Filmaro"
+  search_page_title: "Search results - Filmaro"
+  about_page_title: "About Filmaro - Filmaro"
+  copyright_page_title: "Copyright - Filmaro"
+  license_page_title: "License - Filmaro"
+  item_page_title: "Item - Filmaro"
+
+  # main page and general
+  filmaro: "Filmaro"
+  search_some_film: "Search some film"
+  search: "Search"
+  select_language: "Select language"
+  about: "About Filmaro"
+  copyright: "Copyright"
+
+  # search
+  search_results: "Search results"
+  nothing_found: "Nothing was found"
+
+  # items
+  bad_id: "Bad or unsupported item. Try another one."
+  video_info: "video information"
+  image_info: "image information"
+  item_info_license_text: "All the information presented here (without the multimedias) are under the conditions of <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\">CC0 1.0 Universal</a>"
+  info_comes_from: "The information comes from the live database <a href=\"https://www.wikidata.org/\">Wikidata</a>. See the original item on <a href=\"https://www.wikidata.org/wiki/%{id}\">https://www.wikidata.org/wiki/%{id}</a>."
+  minutes: "minutes"
+
+  links: "Links"
+  wikipedia: "Wikipedia"
+  wikiquote: "Wikiquote"
+  commons_category: "Commons category"
+  reasonator: "Reasonator"
+  official_site: "Official website"

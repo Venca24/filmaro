@@ -1,0 +1,14 @@
+<%= erb :navbar %>
+
+<div class="container">
+  <h1 class="center-text"><%= I18n.t :about %></h1>
+  <% if I18n.locale == :eo %>
+    <!-- Esperanto -->
+    <p><b>Filmaro</b> estas libera reta aplikaĵo por montri la informojn pri filmoj stokataj en la datumbazo <a href="https://www.wikidata.org/">Vikidatumoj</a>.</p>
+  <% else %>
+    <!-- English and other -->
+    <p><b>Filmaro</b> is a free software web application to show the information about films stored at <a href="https://www.wikidata.org/">Wikidata</a>.</p>
+  <% end %>  
+
+  <%= erb :_footer %>
+</div>

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= url('') %>"><%= I18n.t :filmaro %></a>
+    </div>
+
+    <div class="search-container">
+      <form action="/search" method="get">
+        <div class="input-group">
+          <input type="text" class="form-control input-sm" placeholder="<%= I18n.t :search_some_film %>" name="q">
+          <span class="input-group-btn">
+            <button class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>

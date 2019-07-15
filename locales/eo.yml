@@ -1,0 +1,52 @@
+# Filmaro - simple app to show film data stored in Wikidata
+#
+# Copyright (C) 2017-2019  Václav Zouzalík
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+eo:
+  # paĝotitoloj
+  main_page_title: "Ĉefpaĝo - Filmaro"
+  search_page_title: "Serĉrezultoj - Filmaro"
+  about_page_title: "Pri Filmaro - Filmaro"
+  copyright_page_title: "Kopirajto - Filmaro"
+  license_page_title: "Licenco - Filmaro"
+  item_page_title: "Ero - Filmaro"
+
+  # ĉefpaĝo kaj ĝeneralaj
+  filmaro: "Filmaro"
+  search_some_film: "Serĉu iun filmon"
+  search: "Serĉu"
+  select_language: "Elektu lingvon"
+  about: "Pri Filmaro"
+  copyright: "Kopirajto"
+
+  # serĉilo
+  search_results: "Serĉrezultoj"
+  nothing_found: "Nenio trovita"
+
+  # ero
+  bad_id: "Malĝusta aŭ nesubtenata ero. Provu alian."
+  video_info: "informoj pri video"
+  image_info: "informoj pri bildo"
+  item_info_license_text: "Ĉiuj ĉi tie montritaj informoj (krom la plurmediaj) estas sub kondiĉoj de <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.eo\">CC0 1.0 Universala</a>"
+  info_comes_from: "La informoj venas el la viva datumbazo de <a href=\"https://www.wikidata.org/\">Vikidatumoj</a>. Vidu la originan eron je <a href=\"https://www.wikidata.org/wiki/%{id}\">https://www.wikidata.org/wiki/%{id}</a>."
+  minutes: minutoj
+
+  links: "Ligiloj"
+  wikipedia: "Vikipedio"
+  wikiquote: "Vikicitaro"
+  commons_category: "Komuneja kategorio"
+  reasonator: "Reasonator"
+  official_site: "Oficiala retejo"

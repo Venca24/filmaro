@@ -1,0 +1,20 @@
+<%= erb :navbar %>
+
+<div class="container">
+  <h1 class="center-text"><%= I18n.t :search_results %></h1>
+  <div class="row">
+    <div class="list-group col-sm-6" style="margin-left: auto; margin-right: auto; float: none;">
+      <% if params['q'].strip.empty? || @results.empty? %>
+        <div class="alert alert-danger" role="alert"><%= I18n.t :nothing_found %></h2></div>
+      <% else %>
+        <% @results.reject { |result| result[:title].nil? }.each do |result| %>
+          <a href="/item/<%= result[:id] %>" class="list-group-item"><%= result[:title] %></a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <%= erb :_footer %>
+  </div>
+</div>

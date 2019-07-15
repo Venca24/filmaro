@@ -1,0 +1,19 @@
+<%= erb :navbar %>
+
+<div class="container">
+  <h1 class="center-text"><%= I18n.t :copyright %></h1>
+  <% if I18n.locale == :eo %>
+    <!-- Esperanto -->
+    <p>Filmaro prenas datumojn el la datumbazo <a href="https://www.wikidata.org/">Vikidatumoj</a>. Ĉiuj tekstaj datumoj konservitaj tie estas publigitaj sub permesilo <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.eo">CC0 1.0 Universala</a>. Plurmediaĵoj venas el <a href="https://commons.wikimedia.org/">Vikimedia Komunejo</a>, kie vi povas ricevi informojn pri permesilo de koncernaj dosieroj. Tamen ĉiuj el ili estas sub ia <a href="https://freedomdefined.org/Definition/Eo">libera permesilo</a>.</p>
+
+    <p>Filmaro mem estas reta aplikaĵo, kiu montras la datumojn kune en home legebla formo. Ĝi estas <a href="https://eo.wikipedia.org/wiki/Libera_programaro">libera programo</a> eldonita sub la permesilo <a href="/license">GNU Affero General Public License</a>. Vi povas trovi la fontokodon <a href="<%= FILMARO[:source_url] %>">ĉi tie</a>.</p>
+  
+  <% else %>
+    <!-- English and other -->
+    <p>Filmaro gets it's data from the database <a href="https://www.wikidata.org/">Wikidata</a>. All the textual data stored there are published under the license <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0 1.0 Universal</a>. The multimedia comes from <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> where you can get information about license of the particular file. However all of them are under some <a href="https://en.wikipedia.org/wiki/Free_license">free license</a>.</p>
+
+    <p>Filmaro itself is web application which presents those data together in human-readable form. It is <a href="https://en.wikipedia.org/wiki/Free_software">free software</a> released under the license <a href="/license">GNU Affero General Public License</a>. You can find the source code <a href="<%= FILMARO[:source_url] %>">here</a>.</p>
+  <% end %>
+
+  <%= erb :_footer %>
+</div>

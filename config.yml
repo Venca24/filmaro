@@ -1,0 +1,19 @@
+FILMARO:
+  source_url: 'https://github.com/Venca24/filmaro/'
+
+LANGS:
+  available_locales:
+    en: 'English'
+    eo: 'Esperanto'
+
+  default_locale: :en
+
+ITEMS:
+  # id + template
+  Q11424: :film # film
+  Q24862: :film # short film
+  Q24869: :film # feature film
+  Q226730: :film # silent film
+  Q229390: :film # 3D film
+  Q17517379: :film # animated short film
+  Q20667187: :film # silent short film

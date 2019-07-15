@@ -1,0 +1,28 @@
+<div class="container center-text">
+  <div class="jumbotron">
+    <h1><%= I18n.t :filmaro %></h1>
+
+    <form action="/search" method="get">
+      <div class="input-group col-md-12">
+        <input type="text" class="form-control input-lg" placeholder="<%= I18n.t :search_some_film %>" name="q">
+        <span class="input-group-btn">
+          <button class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-search"></span> <span class="hidden-sm hidden-xs"><%= I18n.t :search %></span>
+          </button>
+        </span>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-12" id="main-language-selector">
+    <h3><%= I18n.t :select_language %></h3>
+    <p>
+      <% LANGS[:available_locales].each_with_index do |lang, index| %>
+        <a href="?lang=<%= lang.first %>"><%= lang.last %></a>
+        <% unless index + 1 == LANGS[:available_locales].size %> - <% end %>
+      <% end %>
+    </p>
+  </div>
+
+  <%= erb :_footer %>
+</div>

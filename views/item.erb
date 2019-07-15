@@ -1,0 +1,35 @@
+<%= erb :navbar %>
+
+<div class="container">
+  <h1 class="center-text"><%= @name %></h1>
+  <h3><%= @original_title %></h3>
+  <p><%= WikidataHelper.get_description(@item) %></p>
+
+  <div class="row">
+  <div class="col-md-10">
+    <div class="table-responsive">
+      <%= erb "_item_#{@template}".to_sym %>
+    </div>
+  </div>
+  
+  <div class="col-md-2">
+    <h4><%= I18n.t :links %></h4>
+    <ul>
+      <% if @links[:wikipedia] %><li><a href="<%= @links[:wikipedia] %>"><%= I18n.t :wikipedia %></li><% end %>
+      <% if @links[:wikiquote] %><li><a href="<%= @links[:wikiquote] %>"><%= I18n.t :wikiquote %></li><% end %>
+      <% if @links[:commons_category] %><li><a href="<%= @links[:commons_category] %>"><%= I18n.t :commons_category %></a></li><% end %>
+      <li><a href="https://tools.wmflabs.org/reasonator/?q=<%= params[:id] %>&lang=<%= I18n.locale %>"><%= I18n.t :reasonator %></a></li>
+      <% if @links[:official] %><li><a href="<%= @links[:official] %>"><%= I18n.t :official_site %></li><% end %>
+    </ul>
+  </div>
+  </div>
+
+  <div class="row">
+    <p xmlns:dct="http://purl.org/dc/terms/"><small><a href="https://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img src="<%= url('/img/Creative_Commons_zero_small.svg.png') %>" alt="CC0 logo" style="width: 70px;" /></a> <%= I18n.t :item_info_license_text %></small></p>
+    <p><small><%= I18n.t :info_comes_from, id: @item.id %></small></p>
+  </div>
+</div>
+
+<div class="container">
+  <%= erb :_footer %>
+</div>
