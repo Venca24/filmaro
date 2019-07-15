@@ -17,6 +17,9 @@
 
 require 'wikidata'
 
+# temporarily fixes spam from hashie used in the gem
+Hashie.logger = Logger.new(nil)
+
 # class to help process the data from Wikidata for Filmaro
 class WikidataHelper
   class << self
