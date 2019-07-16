@@ -1,57 +1,57 @@
 <table class="table table-striped" itemscope itemtype="https://schema.org/CreativeWork">
   <% if @video %>
     <tr>
-      <th class="col-xs-4"><%= WikidataHelper.get_property_label('P10') %></th>
+      <th class="col-xs-4"><%= WikidataHelper.cached_property_label('P10') %></th>
       <td><video src="<%= @video[:url] %>" width='500px' controls>Via retumilo ne subtenas HTML5-videon.</video><br><small><a href="https://commons.wikimedia.org/wiki/File:<%= @video[:name].gsub(' ', '_') %>"><%= I18n.t :video_info %></a></small></td>
     </tr>
   <% end %>
   <% if @image %>
     <tr>
-      <th class="col-xs-4"><%= WikidataHelper.get_property_label('P18') %></th>
+      <th class="col-xs-4"><%= WikidataHelper.cached_property_label('P18') %></th>
       <td><a href="<%= @image[:commons_url] %>"><img src="<%= @image[:url] %>" width='500px' /></a><br><small><a href="<%= @image[:commons_url] %>"><%= I18n.t :image_info %></a></small></td>
     </tr>
   <% end %>
   <tr>
-    <th class="col-xs-4"><%= WikidataHelper.get_property_label('P136') %></th>
+    <th class="col-xs-4"><%= WikidataHelper.cached_property_label('P136') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P136').map { |hash| hash[:title] }.join(', ') %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P495') %></th>
+    <th><%= WikidataHelper.cached_property_label('P495') %></th>
     <td><%= WikidataHelper.get_single(@item, 'P495')[:title] %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P577') %></th>
+    <th><%= WikidataHelper.cached_property_label('P577') %></th>
     <td><%= WikidataHelper.get_date(@item, 'P577') %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P2047') %></th>
+    <th><%= WikidataHelper.cached_property_label('P2047') %></th>
     <td><%= WikidataHelper.get_quantity(@item, 'P2047') %> <%= I18n.t :minutes %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P57') %></th>
+    <th><%= WikidataHelper.cached_property_label('P57') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P57').map { |hash| hash[:title] }.join(', ') %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P58') %></th>
+    <th><%= WikidataHelper.cached_property_label('P58') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P58').map { |hash| hash[:title] }.join(', ') %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P161') %></th>
+    <th><%= WikidataHelper.cached_property_label('P161') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P161').map { |hash| hash[:title] }.join('<br>') %></td>
   </tr>
   <tr>
-    <th><%= WikidataHelper.get_property_label('P162') %></th>
+    <th><%= WikidataHelper.cached_property_label('P162') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P162').map { |hash| hash[:title] }.join(', ') %></td>
   </tr>
   <% unless @previous.empty? %>
     <tr>
-      <th><%= WikidataHelper.get_property_label('P155') %></th>
+      <th><%= WikidataHelper.cached_property_label('P155') %></th>
       <td><a href="/item/<%= @previous[:id] %>"><%= @previous[:title] %></a></td>
     </tr>
   <% end %>
   <% unless @next.empty? %>
     <tr>
-      <th><%= WikidataHelper.get_property_label('P156') %></th>
+      <th><%= WikidataHelper.cached_property_label('P156') %></th>
       <td><a href="/item/<%= @next[:id] %>"><%= @next[:title] %></a></td>
     </tr>
   <% end %>

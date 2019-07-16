@@ -25,6 +25,21 @@ class WikidataHelper
   class << self
     COMMONS_FILE_URL = 'https://commons.wikimedia.org/wiki/File:'.freeze
 
+    def cached_property_label(id)
+      initialize_property_cache
+
+      label = @cached_property_label.dig(I18n.locale, id)
+      if label
+        # delete the cached value in order to keep them updating
+        # but not all at the same time
+        @cached_property_label[I18n.locale].delete(id) if rand(60) == 1
+      else
+        label = get_property_label(id)
+        @cached_property_label[I18n.locale][id] = label
+      end
+      label
+    end
+
     def get_item(id)
       return nil unless good_id?(id)
 
@@ -129,6 +144,17 @@ class WikidataHelper
 
     def supported_item?(item)
       (symbolize(item.property_ids(:P31)) & ITEMS.keys).empty? ? false : true
+    end
+
+    private
+
+    def initialize_property_cache
+      return if @cached_property_label
+
+      @cached_property_label = {}
+      LANGS[:available_locales].keys.each do |lang|
+        @cached_property_label[lang] = {}
+      end
     end
   end
 end
