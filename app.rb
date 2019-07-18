@@ -17,7 +17,6 @@
 
 require 'sinatra'
 require 'sinatra/cookies'
-require 'wikidata'
 
 require './helpers/wikidata_helper'
 
@@ -63,11 +62,10 @@ get '/item/:id' do
 
   return erb :item_bad, layout: :layout unless @item
 
-  @template = (symbolize(@item.property_ids(:P31)) & ITEMS.keys).first
+  @template = (symbolize(@item.claim_ids(:P31)) & ITEMS.keys).first
   @template = ITEMS[@template]
 
   @original_title = WikidataHelper.get_single_string(@item, :P1476)
-  @original_title = @original_title ? @original_title.text : nil
 
   if @template == :film
     @video = WikidataHelper.get_media(@item, 'P10')
@@ -105,13 +103,14 @@ get '/search' do
   @title = I18n.t :search_page_title
 
   @results = []
-  tmp = Wikidata::Item.search("#{params[:q]}|film", 'srlimit' => 30)
-  tmp.results.each do |item|
-    next unless WikidataHelper.supported_item?(item)
+  tmp = WikidataItem.search("#{params[:q]}|film", 30)
+  tmp.each do |item|
+    tmp2 = WikidataItem.new(item)
+    next unless WikidataHelper.supported_item?(tmp2)
 
     @results << {
-      id: item.id,
-      title: WikidataHelper.get_label(item)
+      id: item,
+      title: WikidataHelper.get_label(tmp2) || item
     }
   end
 

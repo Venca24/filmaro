@@ -43,13 +43,13 @@
     <th><%= WikidataHelper.cached_property_label('P162') %></th>
     <td><%= WikidataHelper.get_multiple(@item, 'P162').map { |hash| hash[:title] }.join(', ') %></td>
   </tr>
-  <% unless @previous.empty? %>
+  <% unless @previous&.empty? %>
     <tr>
       <th><%= WikidataHelper.cached_property_label('P155') %></th>
       <td><a href="/item/<%= @previous[:id] %>"><%= @previous[:title] %></a></td>
     </tr>
   <% end %>
-  <% unless @next.empty? %>
+  <% unless @next&.empty? %>
     <tr>
       <th><%= WikidataHelper.cached_property_label('P156') %></th>
       <td><a href="/item/<%= @next[:id] %>"><%= @next[:title] %></a></td>

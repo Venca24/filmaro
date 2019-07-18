@@ -15,10 +15,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-require 'wikidata'
-
-# temporarily fixes spam from hashie used in the gem
-Hashie.logger = Logger.new(nil)
+require_relative 'wikidata_item'
 
 # class to help process the data from Wikidata for Filmaro
 class WikidataHelper
@@ -43,49 +40,53 @@ class WikidataHelper
     def get_item(id)
       return nil unless good_id?(id)
 
-      item = Wikidata::Item.find(id)
+      item = WikidataItem.new(id)
       return nil unless supported_item?(item)
 
       item
     end
 
     def get_date(item, property_id)
-      tmp = item.property(property_id)
-      tmp = tmp.date if tmp
+      tmp = item.claim_date(property_id)
       "#{tmp.day}.#{tmp.month}.#{tmp.year}" if tmp
     end
 
     def get_description(item)
-      return nil unless item.is_a?(Wikidata::Item)
+      return nil unless item.is_a?(WikidataItem)
 
-      tmp = item.descriptions[I18n.locale]
+      tmp = item.descriptions[I18n.locale.to_s]
       tmp ? tmp['value'] : nil
     end
 
-    def get_label(item, strict = false)
-      return nil unless item.is_a?(Wikidata::Item)
+    def get_label(item)
+      return nil unless item.is_a?(WikidataItem)
 
-      tmp = item.labels[I18n.locale]
-      tmp = item.labels[I18n.default_locale] unless tmp || strict
-      tmp ? tmp['value'] : nil
+      item.label(I18n.locale)
     end
 
     def get_media(item, property_id)
-      tmp = item.property(property_id)
+      tmp = item.claim(property_id)
       return nil unless tmp
 
+      tmp = tmp.first
+      return nil unless tmp['mainsnak']['datatype'] == 'commonsMedia'
+
+      name = tmp['mainsnak']['datavalue']['value']
       {
-        url: tmp.url,
-        name: tmp.value,
-        commons_url: COMMONS_FILE_URL + tmp.value.tr(' ', '_')
+        url: get_commons_file_by_name(name),
+        name: name,
+        commons_url: COMMONS_FILE_URL + name.tr(' ', '_')
       }
     end
 
     def get_multiple(item, property_id)
-      values = item.property_ids(property_id).map do |id|
+      tmp = item.claim_ids(property_id)
+      return [] unless tmp
+
+      values = tmp.map do |id|
         {
           id: id,
-          title: get_label(Wikidata::Item.find(id), true)
+          title: get_item_label(id)
         }
       end
       values.reject { |hash| hash[:title].nil? }
@@ -96,36 +97,50 @@ class WikidataHelper
 
       label = I18n.t(id.to_sym)
       if label.include?('translation missing')
-        label = Wikidata::Item.find(id).labels[I18n.locale]
-        label ||= Wikidata::Item.find(id).labels[I18n.default_locale]
+        label = WikidataFetcher.get_labels(
+          id, "#{I18n.locale}|#{I18n.default_locale}"
+        )
+        label = label[I18n.locale.to_s] || label[I18n.default_locale.to_s]
         label = label['value']
       end
       label
     end
 
+    def get_item_label(id)
+      return nil unless good_id?(id)
+
+      label = WikidataFetcher.get_labels(
+        id, "#{I18n.locale}|#{I18n.default_locale}"
+      )
+      label = label[I18n.locale.to_s] || label[I18n.default_locale.to_s]
+      label['value']
+    end
+
     def get_quantity(item, property_id)
       return nil unless good_property_id?(property_id)
 
-      tmp = item.property(property_id)
-      tmp ? tmp.amount.to_i : nil
+      tmp = item.claim_amount(property_id)
+      tmp ? tmp.to_i : nil
     end
 
     def get_single(item, property_id)
-      id = item.property_id(property_id)
+      id = item.claim_id(property_id)
+      return {} unless id
+
       result = {
         id: id,
-        title: get_label(Wikidata::Item.find(id), true)
+        title: get_item_label(id)
       }
       result[:title] ? result : {}
     end
 
     def get_single_string(item, property)
-      string = item.property(property)
-      string ? string.value : nil
+      tmp = item.claim_string(property)
+      tmp ? tmp.first : nil
     end
 
     def get_sitelink(item, project)
-      return nil unless item.is_a?(Wikidata::Item) && project.is_a?(String)
+      return nil unless item.is_a?(WikidataItem) && project.is_a?(String)
 
       sitelinks = item.sitelinks
       page = sitelinks["#{I18n.locale}#{project}"]
@@ -143,7 +158,7 @@ class WikidataHelper
     end
 
     def supported_item?(item)
-      (symbolize(item.property_ids(:P31)) & ITEMS.keys).empty? ? false : true
+      (symbolize(item.claim_ids(:P31)) & ITEMS.keys).empty? ? false : true
     end
 
     private
@@ -155,6 +170,17 @@ class WikidataHelper
       LANGS[:available_locales].keys.each do |lang|
         @cached_property_label[lang] = {}
       end
+    end
+
+    def get_commons_file_by_name(name)
+      url = \
+        'https://commons.wikimedia.org/w/api.php?action=query&titles=File:' +
+        CGI.escape(name) + '&prop=imageinfo&iiprop=url&format=json'
+
+      json = Typhoeus.get(url).body
+      json = JSON.parse(json)
+      json = json['query']['pages'].first
+      json[1]['imageinfo'][0]['url']
     end
   end
 end
