@@ -4,11 +4,13 @@
   <h1 class="center-text"><%= I18n.t :about %></h1>
   <% if I18n.locale == :eo %>
     <!-- Esperanto -->
-    <p><b>Filmaro</b> estas libera reta aplikaĵo por montri la informojn pri filmoj stokataj en la datumbazo <a href="https://www.wikidata.org/">Vikidatumoj</a>.</p>
+    <p><b>Filmaro</b> estas libera reta aplikaĵo por montri la informojn pri filmoj stokataj en la datumbazo <a href="https://www.wikidata.org/">Vikidatumoj</a> en home legebla formo.</p>
+    <p>Tiu ĉi retejo estas libera programo kaj uzas datumbazon sub libera permesilo. Pli da informoj vi trovos en la paĝo pri <a href="/copyright">Kopirajto</a>.</p>
   <% else %>
     <!-- English and other -->
-    <p><b>Filmaro</b> is a free software web application to show the information about films stored at <a href="https://www.wikidata.org/">Wikidata</a>.</p>
-  <% end %>  
+    <p><b>Filmaro</b> is a free software web application to show the information about films stored at <a href="https://www.wikidata.org/">Wikidata</a> in human-readable form.</p>
+    <p>This website is free software and uses a database under a free license. More information you can find at the <a href="/copyright">Copyright</a> page.</p>
+  <% end %>
 
   <%= erb :_footer %>
 </div>
