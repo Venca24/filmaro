@@ -109,7 +109,7 @@ class WikidataItem
   def self.search(query, limit)
     url = \
       'https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=' +
-      query + '&srlimit=' + limit.to_s + '&srprop=size&format=json'
+      query.tr(' ', '+') + '&srlimit=' + limit.to_s + '&srprop=size&format=json'
     Typhoeus::Config.cache = Cache.new
     json = Typhoeus.get(url).body
     data = JSON.parse(json)
