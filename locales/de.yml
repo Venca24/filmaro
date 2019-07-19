@@ -1,0 +1,52 @@
+# Filmaro - simple app to show film data stored in Wikidata
+#
+# Copyright (C) 2017-2019  Václav Zouzalík
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+de:
+  # page titles
+  main_page_title: "Hauptseite - Filmaro"
+  search_page_title: "Suchergebnisse - Filmaro"
+  about_page_title: "Über Filmaro - Filmaro"
+  copyright_page_title: "Urheberrecht - Filmaro"
+  license_page_title: "Lizenz - Filmaro"
+  item_page_title: "Item - Filmaro"
+
+  # main page and general
+  filmaro: "Filmaro"
+  search_some_film: "Suche nach einem Film"
+  search: "Suche"
+  select_language: "Eine Sprache wählen"
+  about: "Über Filmaro"
+  copyright: "Urheberrecht"
+
+  # search
+  search_results: "Suchergebnisse"
+  nothing_found: "Keine Ergebnisse gefunden"
+
+  # items
+  bad_id: "Schlecht oder nicht unterstüzt Datenobjekt. Versuchen Sie einen anderen."
+  video_info: "Video-Informationen"
+  image_info: "Bild-Informationen"
+  item_info_license_text: "Alle hier-vorgestellte Informationen (ohne dem Multimedia) sind unter die Bedingungen von <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\">CC0 1.0 Universell</a>"
+  info_comes_from: "Die Informationen kommen aus der Live-Datenbank <a href=\"https://www.wikidata.org/\">Wikidata</a>. See the original item on <a href=\"https://www.wikidata.org/wiki/%{id}\">https://www.wikidata.org/wiki/%{id}</a>."
+  minutes: "Minuten"
+
+  links: "Links"
+  wikipedia: "Wikipedia"
+  wikiquote: "Wikiquote"
+  commons_category: "Commons-Kategorie"
+  reasonator: "Reasonator"
+  official_site: "Offizielle Website"
