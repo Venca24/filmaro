@@ -31,6 +31,7 @@ eo:
   select_language: "Elektu lingvon"
   about: "Pri Filmaro"
   copyright: "Kopirajto"
+  source_code: "Fontokodo"
 
   # serĉilo
   search_results: "Serĉrezultoj"

@@ -31,6 +31,7 @@ de:
   select_language: "Eine Sprache wählen"
   about: "Über Filmaro"
   copyright: "Urheberrecht"
+  source_code: "Quellcode"
 
   # search
   search_results: "Suchergebnisse"
