@@ -113,7 +113,7 @@ class WikidataHelper
         id, "#{I18n.locale}|#{I18n.default_locale}"
       )
       label = label[I18n.locale.to_s] || label[I18n.default_locale.to_s]
-      label['value']
+      label ? label['value'] : id
     end
 
     def get_quantity(item, property_id)
@@ -158,7 +158,10 @@ class WikidataHelper
     end
 
     def supported_item?(item)
-      (symbolize(item.claim_ids(:P31)) & ITEMS.keys).empty? ? false : true
+      instance_of = item.claim_ids(:P31)
+      return false unless instance_of
+
+      (symbolize(instance_of) & ITEMS.keys).empty? ? false : true
     end
 
     private
