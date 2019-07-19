@@ -10,7 +10,11 @@ Filmaro estas libera reta aplikaĵo, kiu montras informojn pri filmoj stokataj e
 
         $ git clone https://github.com/Venca24/filmaro/
 
-2. En komandlinio, startigu la aplikaĵon
+2. En komandlinio, instalu la dependaĵojn
+
+        $ bundle install
+
+3. Startigu la aplikaĵon
 
         $ shotgun # in the test environment
 
@@ -18,7 +22,7 @@ Filmaro estas libera reta aplikaĵo, kiu montras informojn pri filmoj stokataj e
 
         $ puma # in the production environment
 
-3. Iru al `http://localhost:9393` (uzante shotgun) aŭ `http://localhost:9292` (uzante puma).
+4. Iru al `http://localhost:9393` (uzante shotgun) aŭ `http://localhost:9292` (uzante puma).
 
 ## Aliaj notoj
 
