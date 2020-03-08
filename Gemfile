@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# specifying ruby version for Heroku
+ruby '~> 2.6.5'
+
 gem 'activesupport', '~> 5.2', '>= 5.2.4'
 gem 'i18n', '~> 0.9.5'
 gem 'puma', '~> 4.3'
