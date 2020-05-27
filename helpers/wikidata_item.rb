@@ -49,9 +49,9 @@ class WikidataItem
     tmp = claim(id)
     tmp = tmp.first['mainsnak']['datavalue']['value']['time'] if tmp
     if tmp.match?(/\+\d{4}-00-00T/)
-      return Time.strptime(tmp, '+%Y')
+      Time.strptime(tmp, '+%Y')
     elsif tmp.match?(/\+\d{4}-\d{2}-00T/)
-      return Time.strptime(tmp, '+%Y-%m')
+      Time.strptime(tmp, '+%Y-%m')
     else
       Time.strptime(tmp, '+%Y-%m-%d')
     end
@@ -109,12 +109,14 @@ class WikidataItem
   def self.search(query, limit)
     url = \
       'https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=' +
-      query.tr(' ', '+') + '&srlimit=' + limit.to_s + '&srprop=size&format=json'
-    Typhoeus::Config.cache = Cache.new
-    json = Typhoeus.get(url).body
-    data = JSON.parse(json)
+      CGI.escape(query) + '&srlimit=' + limit.to_s + '&srprop=size&format=json'
     result = []
-    data['query']['search'].each { |x| result.concat([x['title']]) }
+    Typhoeus::Config.cache = Cache.new
+    response = Typhoeus.get(url)
+    if response.success?
+      data = JSON.parse(response.body)
+      data['query']['search'].each { |x| result.concat([x['title']]) }
+    end
     result
   end
 end
