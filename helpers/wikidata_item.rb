@@ -78,7 +78,11 @@ class WikidataItem
     return nil unless tmp
 
     tmp.map do |value|
-      value['mainsnak']['datavalue']['value']['text']
+      if value['mainsnak']['datavalue']['type'] == 'monolingualtext'
+        value['mainsnak']['datavalue']['value']['text']
+      else
+        value['mainsnak']['datavalue']['value']
+      end
     end
   end
 
