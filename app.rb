@@ -78,10 +78,13 @@ get '/item/:id' do
   @links = {
     wikipedia: WikidataHelper.get_sitelink(@item, 'wiki'),
     wikiquote: WikidataHelper.get_sitelink(@item, 'wikiquote'),
-    commons_category: 'https://commons.wikimedia.org/wiki/Category:' \
-      "#{WikidataHelper.get_single_string(@item, :P373)}",
     official: WikidataHelper.get_single_string(@item, :P856)
   }
+  commons_category = WikidataHelper.get_single_string(@item, :P373)
+  if commons_category
+    @links[:commons_category] = 'https://commons.wikimedia.org/wiki/' \
+      "Category:#{commons_category}"
+  end
 
   erb :item, layout: :layout
 end
