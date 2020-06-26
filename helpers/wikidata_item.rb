@@ -47,7 +47,9 @@ class WikidataItem
 
   def claim_date(id)
     tmp = claim(id)
-    tmp = tmp.first['mainsnak']['datavalue']['value']['time'] if tmp
+    tmp = tmp&.first&.dig('mainsnak', 'datavalue', 'value', 'time')
+    return nil unless tmp
+
     if tmp.match?(/\+\d{4}-00-00T/)
       Time.strptime(tmp, '+%Y')
     elsif tmp.match?(/\+\d{4}-\d{2}-00T/)
