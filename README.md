@@ -16,13 +16,9 @@ Filmaro is a free software web application which shows information about films s
 
 3. Run the application
 
-        $ shotgun # in the test environment
+        $ bundle exec puma
 
-   or
-
-        $ puma # in the production environment
-
-4. Go to `http://localhost:9393` (when using shotgun) or `http://localhost:9292` (when using puma).
+4. Go to `http://localhost:3000`.
 
 ## Other notes
 
