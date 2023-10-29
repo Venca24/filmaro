@@ -12,5 +12,5 @@ gem 'typhoeus', '~> 1.4', '>= 1.4.0'
 
 group :development, :test do
   gem 'pry', '~> 0.14.2'
-  gem 'rubocop', '~> 1.17.0'
+  gem 'rubocop', '~> 1.22.3'
 end
