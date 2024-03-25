@@ -96,7 +96,7 @@ class WikidataHelper
       return nil unless good_property_id?(id)
 
       label = I18n.t(id.to_sym)
-      if label.include?('translation missing')
+      if label.match?(/translation missing/i)
         label = WikidataFetcher.get_labels(
           id, "#{I18n.locale}|#{I18n.default_locale}"
         )
