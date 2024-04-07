@@ -1,0 +1,7 @@
+AllCops:
+  TargetRubyVersion: 3.1
+  Exclude: []
+  NewCops: disable
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
