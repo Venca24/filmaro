@@ -5,9 +5,9 @@ ruby '~> 3.1.2'
 
 gem 'activesupport', '~> 7.1'
 gem 'i18n', '~> 1.14.4'
-gem 'puma', '~> 5.6'
-gem 'sinatra', '~> 3.2.0'
-gem 'sinatra-contrib', '~> 3.2.0'
+gem 'puma', '~> 6.4'
+gem 'sinatra', '~> 4.0.0'
+gem 'sinatra-contrib', '~> 4.0.0'
 gem 'typhoeus', '~> 1.4', '>= 1.4.0'
 
 group :development, :test do
