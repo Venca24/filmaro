@@ -1,0 +1,53 @@
+# Filmaro - simple app to show film data stored in Wikidata
+#
+# Copyright (C) 2017-2024  Václav Zouzalík
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+fr:
+  # page titles
+  main_page_title: "Page principale - Filmaro"
+  search_page_title: "Résultats de recherche - Filmaro"
+  about_page_title: "À propos de Filmaro - Filmaro"
+  copyright_page_title: "Droit d'auteur - Filmaro"
+  license_page_title: "Licence - Filmaro"
+  item_page_title: "Élément - Filmaro"
+
+  # main page and general
+  filmaro: "Filmaro"
+  search_some_film: "Rechercher un film"
+  search: "Rechercher"
+  select_language: "Sélectionner la langue"
+  about: "À propos de Filmaro"
+  copyright: "Droit d'auteur"
+  source_code: "Code source du logiciel"
+
+  # search
+  search_results: "Résultats de recherche"
+  nothing_found: "Aucun résultat trouvé"
+
+  # items
+  bad_id: "Élément incorrect ou non pris en charge. Veuillez en essayer un autre."
+  video_info: "informations sur la vidéo"
+  image_info: "informations sur l'image"
+  item_info_license_text: "Les informations présentées ici (sans les éléments multimédia) sont sous licence <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.en\">CC0 1.0 Universel</a>"
+  info_comes_from: "Les informations proviennent de la base de données en direct <a href=\"https://www.wikidata.org/\">Wikidata</a>. Voir l'élément original sur <a href=\"https://www.wikidata.org/wiki/%{id}\">https://www.wikidata.org/wiki/%{id}</a>."
+  minutes: "minutes"
+
+  links: "Liens"
+  wikipedia: "Wikipédia"
+  wikiquote: "Wikiquote"
+  commons_category: "Catégorie Commons"
+  reasonator: "Reasonator"
+  official_site: "Site officiel"

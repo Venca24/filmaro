@@ -6,6 +6,7 @@ LANGS:
     de: 'Deutsch'
     en: 'English'
     eo: 'Esperanto'
+    fr: 'Français'
 
   default_locale: :en
 
