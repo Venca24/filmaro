@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '~> 3.1.2'
 
 gem 'activesupport', '~> 7.1'
-gem 'i18n', '~> 1.14.4'
+gem 'i18n', '~> 1.14.5'
 gem 'puma', '~> 6.4'
 gem 'sinatra', '~> 4.0.0'
 gem 'sinatra-contrib', '~> 4.0.0'
