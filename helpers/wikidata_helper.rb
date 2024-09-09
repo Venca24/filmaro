@@ -119,8 +119,7 @@ class WikidataHelper
     def get_quantity(item, property_id)
       return nil unless good_property_id?(property_id)
 
-      tmp = item.claim_amount(property_id)
-      tmp ? tmp.to_i : nil
+      item.claim_amount(property_id)&.to_i
     end
 
     def get_single(item, property_id)
@@ -135,8 +134,7 @@ class WikidataHelper
     end
 
     def get_single_string(item, property)
-      tmp = item.claim_string(property)
-      tmp ? tmp.first : nil
+      item.claim_string(property)&.first
     end
 
     def get_sitelink(item, project)
