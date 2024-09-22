@@ -175,8 +175,8 @@ class WikidataHelper
 
     def get_commons_file_by_name(name)
       url = \
-        'https://commons.wikimedia.org/w/api.php?action=query&titles=File:' +
-        CGI.escape(name) + '&prop=imageinfo&iiprop=url&format=json'
+        'https://commons.wikimedia.org/w/api.php?action=query&titles=File:' \
+        "#{CGI.escape(name)}&prop=imageinfo&iiprop=url&format=json"
 
       json = Typhoeus.get(url).body
       json = JSON.parse(json)

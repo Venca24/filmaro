@@ -114,8 +114,8 @@ class WikidataItem
 
   def self.search(query, limit)
     url = \
-      'https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=' +
-      CGI.escape(query) + '&srlimit=' + limit.to_s + '&srprop=size&format=json'
+      'https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=' \
+      "#{CGI.escape(query)}&srlimit=#{limit}&srprop=size&format=json"
     result = []
     Typhoeus::Config.cache = Cache.new
     response = Typhoeus.get(url)

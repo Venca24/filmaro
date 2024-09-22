@@ -18,8 +18,8 @@ end
 class WikidataFetcher
   class << self
     def get_labels(id, lang)
-      url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' +
-            id + '&languages=' + lang + '&props=labels&format=json'
+      url = 'https://www.wikidata.org/w/api.php?action=wbgetentities&ids=' \
+            "#{id}&languages=#{lang}&props=labels&format=json"
       Typhoeus::Config.cache ||= Cache.new
       data = Typhoeus.get(url).body
       item = JSON.parse(data)
@@ -27,7 +27,7 @@ class WikidataFetcher
     end
 
     def get_item(id)
-      url = 'https://www.wikidata.org/wiki/Special:EntityData/' + id + '.json'
+      url = "https://www.wikidata.org/wiki/Special:EntityData/#{id}.json"
       Typhoeus::Config.cache ||= Cache.new
       data = Typhoeus.get(url).body
       item = JSON.parse(data)
