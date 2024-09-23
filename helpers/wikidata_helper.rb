@@ -15,12 +15,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# frozen_string_literal: true
+
 require_relative 'wikidata_item'
 
 # class to help process the data from Wikidata for Filmaro
 class WikidataHelper
   class << self
-    COMMONS_FILE_URL = 'https://commons.wikimedia.org/wiki/File:'.freeze
+    COMMONS_FILE_URL = 'https://commons.wikimedia.org/wiki/File:'
 
     def cached_property_label(id)
       initialize_property_cache
