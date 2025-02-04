@@ -170,7 +170,7 @@ class WikidataHelper
       return if @cached_property_label
 
       @cached_property_label = {}
-      LANGS[:available_locales].keys.each do |lang|
+      LANGS[:available_locales].each_key do |lang|
         @cached_property_label[lang] = {}
       end
     end
