@@ -8,8 +8,8 @@ ruby '~> 3.1.2'
 gem 'activesupport', '~> 7.1'
 gem 'i18n', '~> 1.14.5'
 gem 'puma', '~> 6.5'
-gem 'sinatra', '~> 4.1.0'
-gem 'sinatra-contrib', '~> 4.1.0'
+gem 'sinatra', '~> 4.2.1'
+gem 'sinatra-contrib', '~> 4.2.1'
 gem 'typhoeus', '~> 1.4', '>= 1.4.0'
 
 group :development, :test do
