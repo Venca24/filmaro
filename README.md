@@ -18,7 +18,7 @@ Filmaro is a free software web application which shows information about films s
 
         $ bundle exec puma
 
-4. Go to `http://localhost:3000`.
+4. Go to `http://localhost:3000` in your browser.
 
 ## Other notes
 

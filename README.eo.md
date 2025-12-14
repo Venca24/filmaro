@@ -18,7 +18,7 @@ Filmaro estas libera reta aplikaĵo, kiu montras informojn pri filmoj stokataj e
 
         $ bundle exec puma
 
-4. Iru al `http://localhost:3000`.
+4. Iru al `http://localhost:3000` en via retumilo.
 
 ## Aliaj notoj
 
