@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # specifying ruby version for Heroku
 ruby '~> 3.1.2'
 
-gem 'activesupport', '~> 7.1'
+gem 'activesupport', '~> 7.1.6'
 gem 'i18n', '~> 1.14.7'
 gem 'puma', '~> 7.1'
 gem 'sinatra', '~> 4.2.1'
