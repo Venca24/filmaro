@@ -27,7 +27,7 @@ GEM
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
-    method_source (1.0.0)
+    method_source (1.1.0)
     minitest (5.22.3)
     multi_json (1.18.0)
     mustermann (3.0.4)
@@ -39,7 +39,7 @@ GEM
       ast (~> 2.4.1)
       racc
     prism (1.6.0)
-    pry (0.14.2)
+    pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     puma (6.5.0)
@@ -99,7 +99,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 7.1)
   i18n (~> 1.14.7)
-  pry (~> 0.14.2)
+  pry (~> 0.15.2)
   puma (~> 6.5)
   rubocop (~> 1.80.2)
   sinatra (~> 4.2.1)

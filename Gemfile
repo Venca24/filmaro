@@ -13,6 +13,6 @@ gem 'sinatra-contrib', '~> 4.2.1'
 gem 'typhoeus', '~> 1.5', '>= 1.5.0'
 
 group :development, :test do
-  gem 'pry', '~> 0.14.2'
+  gem 'pry', '~> 0.15.2'
   gem 'rubocop', '~> 1.80.2'
 end
