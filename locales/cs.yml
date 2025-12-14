@@ -1,0 +1,53 @@
+# Filmaro - simple app to show film data stored in Wikidata
+#
+# Copyright (C) 2025  Václav Zouzalík
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+cs:
+  # page titles
+  main_page_title: "Hlavní strana - Filmaro"
+  search_page_title: "Výsledky vyhledávání - Filmaro"
+  about_page_title: "O Filmaro - Filmaro"
+  copyright_page_title: "Autorská práva - Filmaro"
+  license_page_title: "Licence - Filmaro"
+  item_page_title: "Položka - Filmaro"
+
+  # main page and general
+  filmaro: "Filmaro"
+  search_some_film: "Hledej film"
+  search: "Hledat"
+  select_language: "Vybrat jazyk"
+  about: "O Filmaro"
+  copyright: "Autorská práva"
+  source_code: "Zdrojový kód"
+
+  # search
+  search_results: "Výsledky vyhledávání"
+  nothing_found: "Žádné výsledky nenalezeny"
+
+  # items
+  bad_id: "Špatná nebo nepodporovaná položka. Zkus jinou."
+  video_info: "informace o videu"
+  image_info: "informace o obrázku"
+  item_info_license_text: "Všechny zde uvedené informace (s výjimkou multimédií) jsou pod licencí <a href=\"https://creativecommons.org/publicdomain/zero/1.0/deed.cs\">CC0 1.0 Univerzální</a>"
+  info_comes_from: "Informace pochází z živé databáze <a href=\"https://www.wikidata.org/\">Wikidata</a>. Původní položku najdeš na <a href=\"https://www.wikidata.org/wiki/%{id}\">https://www.wikidata.org/wiki/%{id}</a>."
+  minutes: "minut(y)"
+
+  links: "Odkazy"
+  wikipedia: "Wikipedie"
+  wikiquote: "Wikicitáty"
+  commons_category: "Kategorie na Commons"
+  reasonator: "Reasonator"
+  official_site: "Oficiální web"

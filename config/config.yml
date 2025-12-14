@@ -3,6 +3,7 @@ FILMARO:
 
 LANGS:
   available_locales:
+    cs: 'Čeština'
     de: 'Deutsch'
     en: 'English'
     eo: 'Esperanto'
