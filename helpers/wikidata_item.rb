@@ -1,6 +1,6 @@
 # Filmaro - simple app to show film data stored in Wikidata
 #
-# Copyright (C) 2017-2020  Vaclav Zouzalik
+# Copyright (C) 2017-2026  Vaclav Zouzalik
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -105,6 +105,7 @@ class WikidataItem
   def label(lang)
     tmp = labels[lang]
     tmp ||= labels[I18n.default_locale.to_s]
+    tmp ||= labels['mul']
     return unless tmp
 
     tmp['value']
