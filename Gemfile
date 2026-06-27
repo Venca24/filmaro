@@ -7,7 +7,7 @@ ruby '~> 3.1.2'
 
 gem 'activesupport', '~> 7.2.3'
 gem 'i18n', '1.15.2'
-gem 'puma', '~> 7.2'
+gem 'puma', '~> 8.0'
 gem 'sinatra', '~> 4.2.1'
 gem 'sinatra-contrib', '~> 4.2.1'
 gem 'typhoeus', '1.6.0'
