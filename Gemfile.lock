@@ -21,10 +21,11 @@ GEM
     concurrent-ruby (1.3.7)
     connection_pool (2.5.5)
     drb (2.2.3)
-    ethon (0.15.0)
+    ethon (0.18.0)
       ffi (>= 1.15.0)
-    ffi (1.17.2)
-    i18n (1.14.7)
+      logger
+    ffi (1.17.4)
+    i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     json (2.19.2)
     language_server-protocol (3.17.0.5)
@@ -88,8 +89,8 @@ GEM
       sinatra (= 4.2.1)
       tilt (~> 2.0)
     tilt (2.6.1)
-    typhoeus (1.5.0)
-      ethon (>= 0.9.0, < 0.16.0)
+    typhoeus (1.6.0)
+      ethon (>= 0.18.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.2.0)
@@ -101,13 +102,13 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 7.2.3)
-  i18n (~> 1.14.7)
+  i18n (= 1.15.2)
   pry (~> 0.15.2)
   puma (~> 7.2)
   rubocop (~> 1.80.2)
   sinatra (~> 4.2.1)
   sinatra-contrib (~> 4.2.1)
-  typhoeus (~> 1.5, >= 1.5.0)
+  typhoeus (= 1.6.0)
 
 RUBY VERSION
    ruby 3.1.2p20
