@@ -10,7 +10,7 @@ Filmaro is a free software web application which shows information about films s
 
         $ git clone https://github.com/Venca24/filmaro/
 
-2. It the command line, install the dependencies
+2. In the command line, install the dependencies
 
         $ bundle install
 
