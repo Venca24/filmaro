@@ -1,0 +1,8 @@
+.git
+.bundle
+doc/
+*.html
+tmp/
+log/
+Dockerfile
+.dockerignore
