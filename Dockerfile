@@ -1,5 +1,5 @@
 # Use the official Ruby image as the base
-FROM ruby:3.1.2-slim
+FROM ruby:3.3.11-slim
 
 # Install system dependencies for building gems and running the app
 # libcurl4-openssl-dev is required for the 'typhoeus' gem (via 'ethon')
