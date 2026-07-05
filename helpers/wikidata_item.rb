@@ -19,25 +19,50 @@
 
 require_relative 'wikidata_fetcher'
 
+# This class provides an interface for interacting with items from Wikidata
+# using the Wikidata API. It encapsulates functionalities such as fetching
+# item details, retrieving claims and their associated data (like amounts,
+# dates, strings), descriptions, labels in various languages, and site links.
+# Additionally, it offers a search functionality to find titles based
+# on queries.
 class WikidataItem
+  # Initializes a new WikidataItem object.
+  #
+  # @param id [String] The unique identifier of the Wikidata item.
   def initialize(id)
     return unless id
 
     @item = WikidataFetcher.get_item(id)
   end
 
+  # Retrieves all claims associated with the Wikidata item.
+  #
+  # @return [Hash] A hash where keys are claim property IDs and values
+  #   are arrays of claim objects.
   def claims
     @item['claims']
   end
 
+  # Fetches claims for a specific claim ID within the item.
+  #
+  # @param id [String] The claim property ID.
+  # @return [Array, nil] An array of claim objects, or `nil` if no claims exist for the given ID.
   def claim(id)
     claims[id.to_s]
   end
 
+  # Retrieves the first amount from claims for a specified claim ID.
+  #
+  # @param id [String] The claim property ID.
+  # @return [String, nil] A string representing the amount if available; otherwise, `nil`.
   def claim_amount(id)
     claim_amounts(id).first
   end
 
+  # Fetches all amounts from claims for a specified claim ID.
+  #
+  # @param id [String] The claim property ID.
+  # @return [Array<String>] An array of strings representing the amounts associated with the given claim ID. Returns an empty array if no claims are found.
   def claim_amounts(id)
     tmp = claim(id)
     return [] unless tmp
@@ -47,6 +72,10 @@ class WikidataItem
     end
   end
 
+  # Extracts and returns the date from claims for a specific claim ID, formatted appropriately based on precision.
+  #
+  # @param id [String] The claim property ID.
+  # @return [Time, nil] A `Time` object representing the first valid date found; otherwise, `nil`.
   def claim_date(id)
     tmp = claim(id)
     tmp = tmp&.first&.dig('mainsnak', 'datavalue', 'value', 'time')
@@ -61,6 +90,10 @@ class WikidataItem
     end
   end
 
+  # Fetches the first item identifier (ID) from claims for a specified claim ID.
+  #
+  # @param id [String] The claim property ID.
+  # @return [String, nil] A string representing an item ID if available; otherwise, `nil`.
   def claim_id(id)
     tmp = claim_ids(id)
     return nil unless tmp
@@ -68,6 +101,10 @@ class WikidataItem
     tmp.first
   end
 
+  # Retrieves all item IDs from claims for a specific claim ID.
+  #
+  # @param id [String] The claim property ID.
+  # @return [Array<String>, nil] An array of strings representing the item IDs associated with the given claim ID. Returns `nil` if no claims are found.
   def claim_ids(id)
     tmp = claim(id)
     return nil unless tmp
@@ -77,6 +114,10 @@ class WikidataItem
     end
   end
 
+  # Extracts and returns strings from claims for a specified claim ID, considering monolingual text values.
+  #
+  # @param id [String] The claim property ID.
+  # @return [Array<String>, nil] An array of strings representing the textual data associated with the given claim ID. Returns `nil` if no claims are found.
   def claim_string(id)
     tmp = claim(id)
     return nil unless tmp
@@ -90,18 +131,31 @@ class WikidataItem
     end
   end
 
+  # Retrieves all descriptions for the Wikidata item in different languages.
+  #
+  # @return [Hash] A hash where keys are language codes and values are description texts.
   def descriptions
     @item['descriptions']
   end
 
+  # Returns the unique identifier of the Wikidata item.
+  #
+  # @return [String] The ID of the Wikidata item.
   def id
     @item['id']
   end
 
+  # Retrieves all labels for the Wikidata item across various languages.
+  #
+  # @return [Hash] A hash where keys are language codes and values are label strings.
   def labels
     @item['labels']
   end
 
+  # Fetches the label in a specified language, falling back to the default locale if not available.
+  #
+  # @param lang [String] The language code for the desired label.
+  # @return [String, nil] A string representing the label in the requested language or `nil` if unavailable.
   def label(lang)
     tmp = labels[lang]
     tmp ||= labels[I18n.default_locale.to_s]
@@ -111,10 +165,18 @@ class WikidataItem
     tmp['value']
   end
 
+  # Retrieves all site links associated with the Wikidata item.
+  #
+  # @return [Hash] A hash where keys are site names and values are site link data.
   def sitelinks
     @item['sitelinks']
   end
 
+  # Searches for Wikidata items based on a query string.
+  #
+  # @param query [String] The search term.
+  # @param limit [Integer] The maximum number of results to return.
+  # @return [Array<String>] An array of titles matching the search query.
   def self.search(query, limit)
     url = \
       'https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=' \
