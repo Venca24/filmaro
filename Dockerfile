@@ -25,7 +25,9 @@ FROM docker.io/library/ruby:3.3.11-slim
 # Install runtime dependencies (libcurl4 is needed for typhoeus/ethon)
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     libcurl4 \
-    && rm -rf /var/lib/apt/lists/*
+    libjemalloc2 \
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/lib/*-linux-gnu/libjemalloc.so.2 /usr/lib/libjemalloc.so.2
 
 # For security reasons run the app as user 'ruby' not 'root'
 RUN useradd ruby --create-home --shell /bin/bash
@@ -41,8 +43,11 @@ COPY --from=base --chown=ruby:ruby /app /app
 
 USER ruby
 
-# Sets production environment for Rack
+# Set production environment for Rack
 ENV RACK_ENV="production"
+
+# Tell the system to preload jemalloc before the standard glibc allocator
+ENV LD_PRELOAD="/usr/lib/libjemalloc.so.2"
 
 # Expose the port the app will be listening on (default in puma.rb is 3000)
 EXPOSE 3000
