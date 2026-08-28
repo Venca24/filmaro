@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 # specifying ruby version for Heroku
-ruby '~> 3.3.11'
+ruby '~> 3.4.10'
 
 gem 'activesupport', '~> 7.2.3'
 gem 'i18n', '1.15.2'

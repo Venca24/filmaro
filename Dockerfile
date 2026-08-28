@@ -1,5 +1,5 @@
 # Use the official Ruby image as the base
-FROM docker.io/library/ruby:3.3.11-slim AS base
+FROM docker.io/library/ruby:3.4.10-slim AS base
 
 # Install system dependencies for building gems and running the app
 # libcurl4-openssl-dev is required for the 'typhoeus' gem (via 'ethon')
@@ -20,7 +20,7 @@ RUN gem update --system && gem install bundler -v 2.7.2 && bundle install
 # Copy the rest of the application code
 COPY . .
 
-FROM docker.io/library/ruby:3.3.11-slim
+FROM docker.io/library/ruby:3.4.10-slim
 
 # Install runtime dependencies (libcurl4 is needed for typhoeus/ethon)
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \

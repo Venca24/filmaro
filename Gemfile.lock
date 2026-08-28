@@ -111,7 +111,7 @@ DEPENDENCIES
   typhoeus (= 1.6.0)
 
 RUBY VERSION
-   ruby 3.3.11p205
+   ruby 3.4.10p104
 
 BUNDLED WITH
    2.7.2
