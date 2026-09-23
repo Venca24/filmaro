@@ -1,6 +1,6 @@
 # Filmaro - simple app to show film data stored in Wikidata
 #
-# Copyright (C) 2017-2020  Vaclav Zouzalik
+# Copyright (C) 2017-2026  Vaclav Zouzalik
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -67,7 +67,7 @@ get '/item/:id' do
   @template = (symbolize(@item.claim_ids(:P31)) & ITEMS.keys).first
   @template = ITEMS[@template]
 
-  @original_title = WikidataHelper.get_single_string(@item, :P1476)
+  @original_title = WikidataHelper.get_first_string(@item, :P1476)
 
   if @template == :film
     @video = WikidataHelper.get_media(@item, 'P10')
@@ -80,9 +80,9 @@ get '/item/:id' do
   @links = {
     wikipedia: WikidataHelper.get_sitelink(@item, 'wiki'),
     wikiquote: WikidataHelper.get_sitelink(@item, 'wikiquote'),
-    official: WikidataHelper.get_single_string(@item, :P856)
+    official: WikidataHelper.get_first_string(@item, :P856)
   }
-  commons_category = WikidataHelper.get_single_string(@item, :P373)
+  commons_category = WikidataHelper.get_first_string(@item, :P373)
   if commons_category
     @links[:commons_category] = 'https://commons.wikimedia.org/wiki/' \
       "Category:#{commons_category}"

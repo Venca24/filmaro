@@ -118,7 +118,7 @@ class WikidataItem
   #
   # @param id [String] The claim property ID.
   # @return [Array<String>, nil] An array of strings representing the textual data associated with the given claim ID. Returns `nil` if no claims are found.
-  def claim_string(id)
+  def claim_strings(id)
     tmp = claim(id)
     return nil unless tmp
 

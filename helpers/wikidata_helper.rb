@@ -1,6 +1,6 @@
 # Filmaro - simple app to show film data stored in Wikidata
 #
-# Copyright (C) 2017-2020  Vaclav Zouzalik
+# Copyright (C) 2017-2026  Vaclav Zouzalik
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
@@ -135,8 +135,8 @@ class WikidataHelper
       result[:title] ? result : {}
     end
 
-    def get_single_string(item, property)
-      item.claim_string(property)&.first
+    def get_first_string(item, property)
+      item.claim_strings(property)&.first
     end
 
     def get_sitelink(item, project)
